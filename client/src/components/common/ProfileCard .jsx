@@ -6,31 +6,26 @@ export const ProfileCard = ({ imageSrc, username, email, description }) => {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <div className="card max-h-96 min-h-32 max-w-96 bg-base-100 lg:block my-4 mx-2 hidden lg:sticky shadow-xl">
+    <div className="card h-44 min-h-32 max-w-96 bg-base-100 lg:block my-4 mx-2 hidden lg:sticky shadow-xl">
       <figure className="px-10 pt-10">
-        {loading && !imageError && (
-          <div className="animate-pulse flex space-x-4">
-            <div className="rounded-xl bg-gray-300 h-48 w-72"></div>
+      <div className="form-control flex-col right-2 ">
+          <label className="label cursor-pointer flex justify-between ">
+          <div className='flex1'>  <span className="label-text ">IA
+               </span> </div>
+            <input type="checkbox" defaultChecked className="checkbox avatar rounded-full" />
+          </label>
+          <label className="label cursor-pointer flex justify-between">
+            <div className='flex1'><span className="label-text">
+              Software   </span> </div>
+            <input type="checkbox" defaultChecked className="checkbox avatar rounded-full" />
+          </label>
+          <label className="label cursor-pointer flex justify-between">
+           <div><span className="label-text">
+              Networks  
+               </span> </div> 
+            <input type="checkbox" defaultChecked className="checkbox avatar rounded-full" />
+          </label>
           </div>
-        )}
-        {!imageError && (
-          <img
-            src={imageSrc}
-            alt={`${username}'s profile`}
-            onLoad={() => setLoading(false)}
-            onError={() => {
-              setLoading(false);
-              setImageError(true);
-            }}
-            className="rounded-xl"
-            style={{ display: loading ? 'none' : 'block' }}
-          />
-        )}
-        {imageError && (
-          <div className="flex justify-center items-center bg-gray-300 rounded-xl h-48 w-72 text-gray-500">
-            Image not available
-          </div>
-        )}
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title text-xl font-semibold">{username}</h2>

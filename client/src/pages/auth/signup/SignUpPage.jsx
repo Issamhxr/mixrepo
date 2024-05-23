@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-import  Logo  from "../../../components/icons/Logo";
+import  Logo  from "../../../components/dark mode/Logo";
 
 import { MdOutlineMail } from "react-icons/md";
 import { FaUser } from "react-icons/fa";

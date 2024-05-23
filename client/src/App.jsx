@@ -70,13 +70,8 @@ function App() {
 			</Routes>
 		
 			{authUser && <div className=""style={{ height: '200px' }}>
-			<ProfileCard
-				imageSrc="/avatar-placeholder.png"
-				username="issam"
-				email="issam@example.com"
-				description="web app dev ..."
-			/>  
-			 <RightPanel />  
+			<RightPanel /> 
+			<ProfileCard/>
 			</div> }
 
 

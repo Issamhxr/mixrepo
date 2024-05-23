@@ -33,10 +33,13 @@ const Sidebar = () => {
 		},
 	});
 	const { data } = useQuery({ queryKey: ["authUser"] });
+	//theme change toggle function
+
 
 	return (
-		<div className='md:flex-[2_2_0] h-screen pt-3 w-18 z-1 h-[calc(100vh - 64)]  ' >
-			<div className=' lef2-0 h-3/4 flex flex-col  w-20 md:w-full'>
+		<div className='md:flex-[2_2_0] md:h-[630] pt-3 min-w-2xl z-1 h-[calc(100vh - 64)] overflow-clip ' >
+			
+			<div className=' lef2-0 flex flex-col sm:w-1/6 sm:max-w-md '>
 				
 				<ul className='flex flex-col gap-3 mt-2'>
 					<li className='flex justify-center  md:justify-start'>
@@ -88,30 +91,29 @@ const Sidebar = () => {
 					</li>
 					
 					<li className="flex justify-center md:justify-start">
-  <Link
-    to="/group"
-    className="flex gap-3 items-center btn btn-ghost rounded-lg transition-all duration-300 py-2 pl-2 pr-4 max-w-fit cursor-pointer"
-  >
-    <svg
-      className="h-6 w-6"
-      dataSlot="icon"
-      fill="none"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M17 20h5v-1a4 4 0 00-4-4h-1a4 4 0 00-4 4v1h5zM9 20h5v-1a4 4 0 00-4-4H9a4 4 0 00-4 4v1h5zM16 12a4 4 0 100-8 4 4 0 000 8zM9 16a4 4 0 100-8 4 4 0 000 8z"
-      />
-    </svg>
-    <span className="text-lg hidden md:block">groups</span>
-  </Link>
-</li>
-					
+						<Link
+							to="/group"
+							className="flex gap-3 items-center btn btn-ghost rounded-lg transition-all duration-300 py-2 pl-2 pr-4 max-w-fit cursor-pointer"
+						>
+							<svg
+							className="h-6 w-6"
+							dataSlot="icon"
+							fill="none"
+							strokeWidth={1.5}
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+							aria-hidden="true"
+							>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								d="M17 20h5v-1a4 4 0 00-4-4h-1a4 4 0 00-4 4v1h5zM9 20h5v-1a4 4 0 00-4-4H9a4 4 0 00-4 4v1h5zM16 12a4 4 0 100-8 4 4 0 000 8zM9 16a4 4 0 100-8 4 4 0 000 8z"
+							/>
+							</svg>
+							<span className="text-lg hidden md:block">groups</span>
+						</Link>
+					</li>
 				</ul>
 				
 				{data && (
@@ -140,6 +142,7 @@ const Sidebar = () => {
 					</Link>
 				)}
 			</div>
+			
 		</div>
 	);
 };

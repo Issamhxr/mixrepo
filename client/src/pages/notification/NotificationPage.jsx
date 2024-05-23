@@ -49,8 +49,8 @@ const NotificationPage = () => {
 
 	return (
 		<>
-			<div className='flex-[4_4_0]    rounded-lg '>
-				<div className='flex justify-between bg-slate-600 rounded-t-xl items-center p-4 '>
+			<div className='flex-[4_4_0] fixed sm:h-[650px]   rounded-lg  sm:w-2/4 overflow-auto mr-auto ml-auto '>
+				<div className='flex justify-between dark:bg-slate-600 mytheme:bg-[theme.palette.background.paper] rounded-t-xl items-center p-4 '>
 					<p className='font-bold'>Notifications</p>
 					<div className='dropdown '>
 						<div tabIndex={0} role='button' className='m-1'>
