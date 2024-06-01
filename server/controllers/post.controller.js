@@ -30,7 +30,7 @@ export const createPost = async (req, res) => {
 		await newPost.save();
 		res.status(201).json(newPost);
 	} catch (error) {
-		res.status(500).json({ error: "Internal server error" });
+		res.status(500).json({ error: "Internal server error creat post " });
 		console.log("Error in createPost controller: ", error);
 	}
 };
@@ -129,6 +129,99 @@ export const likeUnlikePost = async (req, res) => {
 	}
 };
 
+/*
+// dislike post
+
+export const dislikedisUnlikePost = async (req, res) => {
+	try {
+		const userId = req.user._id;
+		const { id: postId } = req.params;
+
+		const post = await Post.findById(postId);
+
+		if (!post) {
+			return res.status(404).json({ error: "Post not found" });
+		}
+
+		const userdisLikedPost = post.Dislikes.includes(userId);
+
+		if (userdisLikedPost) {
+			// Unlike post
+			await Post.updateOne({ _id: postId }, { $pull: { Dislikes: userId } });
+			await User.updateOne({ _id: userId }, { $pull: { DislikedPosts: postId } });
+
+			const updateddisLikes = post.Dislikes.filter((id) => id.toString() !== userId.toString());
+			res.status(200).json(updateddisLikes);
+		} else {
+			// Like post
+			post.Dislikes.push(userId);
+			await User.updateOne({ _id: userId }, { $push: { DislikedPosts: postId } });
+			await post.save();
+
+			const notification = new Notification({
+				from: userId,
+				to: post.user,
+				type: "dislike",
+			});
+			await notification.save();
+
+			const updateddisLikes = post.Dislikes;
+			res.status(200).json(updateddisLikes);
+		}
+	} catch (error) {
+		console.log("Error in dislikedisUnlikePost controller: ", error);
+		res.status(500).json({ error: "Internal server error" });
+	}
+};
+
+
+// save postes
+
+export const SavePost = async (req, res) => {
+	try {
+		const userId = req.user._id;
+		const { id: postId } = req.params;
+
+		const post = await Post.findById(postId);
+
+		if (!post) {
+			return res.status(404).json({ error: "Post not found" });
+		}
+
+		const usersavePost = post.Saves.includes(userId);
+
+		if (usersavePost) {
+			// unsave post
+			await Post.updateOne({ _id: postId }, { $pull: { Saves : userId } });
+			await User.updateOne({ _id: userId }, { $pull: { SavePosts : postId } });
+
+			const updatedsaves = post.Saves.filter((id) => id.toString() !== userId.toString());
+			res.status(200).json(updatedsaves);
+		} else {
+
+			// save post
+			post.Saves.push(userId);
+			await User.updateOne({ _id: userId }, { $push: { SavePosts : postId } });
+			await post.save();
+
+			const notification = new Notification({
+				from: userId,
+				to: post.user,
+				type: "save",
+			});
+			await notification.save();
+
+			const updatedsaves = post.Saves;
+			res.status(200).json(updatedsaves);
+		}
+	} catch (error) {
+		console.log("Error in saving controller: ", error);
+		res.status(500).json({ error: "Internal server error" });
+	}
+};
+
+*/
+
 export const getAllPosts = async (req, res) => {
 	try {
 		const posts = await Post.find()
@@ -149,7 +242,7 @@ export const getAllPosts = async (req, res) => {
 		res.status(200).json(posts);
 	} catch (error) {
 		console.log("Error in getAllPosts controller: ", error);
-		res.status(500).json({ error: "Internal server error" });
+		res.status(500).json({ error: "Internal server error get post" });
 	}
 };
 

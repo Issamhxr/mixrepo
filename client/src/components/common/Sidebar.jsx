@@ -86,18 +86,28 @@ const Sidebar = () => {
 							<span className='text-lg hidden md:block'>Inbox</span>
 						</Link>
 					</li>
-					<li className='flex justify-center  md:justify-start'>      {/* dont forget change the groups sitting */}
-						<Link
-							to='/'
-							className='flex gap-3 items-center btn btn-ghost rounded-lg  transition-all duration-300 py-2 pl-2 pr-4 max-w-fit cursor-pointer'
-						>
-							
-							<svg dataSlot="icon" fill="none" strokeWidth={1.5} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="h-6 w-6">
- 								 <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-							</svg>
-							<span className='text-lg hidden md:block'>Groups</span>
-						</Link>
-					</li>
+					<Link
+    to="/group"
+    className="flex gap-3 items-center btn btn-ghost rounded-lg transition-all duration-300 py-2 pl-2 pr-4 max-w-fit cursor-pointer"
+  >
+    <svg
+      className="h-6 w-6"
+      dataSlot="icon"
+      fill="none"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M17 20h5v-1a4 4 0 00-4-4h-1a4 4 0 00-4 4v1h5zM9 20h5v-1a4 4 0 00-4-4H9a4 4 0 00-4 4v1h5zM16 12a4 4 0 100-8 4 4 0 000 8zM9 16a4 4 0 100-8 4 4 0 000 8z"
+      />
+    </svg>
+    <span className="text-lg hidden md:block">groups</span>
+  </Link>
 					
 				</ul>
 				{data && (

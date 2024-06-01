@@ -12,7 +12,6 @@ import Topbar from "./components/common/Topbar";
 import Sidebar from "./components/common/Sidebar";
 import RightPanel from "./components/common/RightPanel";
 import { ProfileCard } from "./components/common/ProfileCard ";
-
 import { Toaster } from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "./components/common/LoadingSpinner";
@@ -70,13 +69,10 @@ function App() {
 			</Routes>
 		
 			{authUser && <div className=""style={{ height: '200px' }}>
-			<ProfileCard
-				imageSrc="/avatar-placeholder.png"
-				username="issam"
-				email="issam@example.com"
-				description="web app dev ..."
-			/>  
-			 <RightPanel />  
+			
+			<ProfileCard/>
+			<RightPanel /> 
+			
 			</div> }
 
 
